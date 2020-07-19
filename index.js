@@ -15,6 +15,9 @@ app.engine( 'hbs', hbs( {
   //partialsDir: __dirname + '/views/partials/'
 }));
 
+// Usamos la carpeta public para referenciar archivos css / js
+app.use(express.static(__dirname + '/public'));
+
 // La ruta inicial "home", la cual muestra a index.hbs que está en la carpeta views
 // con la plantilla "template.hbs" que está en la carpeta layouts
 app.get('/', function (req, res) {
