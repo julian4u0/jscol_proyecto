@@ -1,2 +1,2 @@
 # jscol_proyecto
-...
+
