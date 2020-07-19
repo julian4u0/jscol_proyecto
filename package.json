@@ -1,0 +1,27 @@
+{
+  "name": "jscol_proyecto",
+  "version": "1.0.0",
+  "description": "_El objetivo inicial de este proyecto es practicar y aprender nuestros conocimientos en JS_",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julian4u0/jscol_proyecto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julian4u0/jscol_proyecto/issues"
+  },
+  "homepage": "https://github.com/julian4u0/jscol_proyecto#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
