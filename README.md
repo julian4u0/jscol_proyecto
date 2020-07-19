@@ -24,4 +24,4 @@ git commit -m "Acá entre comillas en vez de este mensaje ponemos a que le hicim
 git commit -m "Cambios a index.html"
 git push origin master
 ```
-_ Así, si nuestros cambios se subieron correctamente, los otros podran descargarlos haciendo un **git pull origin master** _
+_Así, si nuestros cambios se subieron correctamente, los otros podran descargarlos haciendo un **git pull origin master**_
