@@ -22,11 +22,11 @@ app.use(express.static(__dirname + '/public'));
 // con la plantilla "template.hbs" que está en la carpeta layouts
 app.get('/', function (req, res) {
     res.render('index', { layout: 'template' });
-  });
+});
 
-  app.get('/login', function (req, res) {
-    res.render('login', { layout: 'template' });
-  });
+app.get('/login', function (req, res) {
+  res.render('login', { layout: 'template' });
+});
 
 app.listen(3000, function () {
   console.log('Servidor corriendo exitosamente en http://localhost:3000/');
