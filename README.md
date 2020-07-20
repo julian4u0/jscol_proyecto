@@ -35,7 +35,7 @@ _El primer paso es descargar los modulos del proyecto, esto se hace con el sigui
 npm install
 ```
 
-_Y ahora para correr el servidor, solo haria falta ejecutar _
+_Y ahora para correr el servidor, solo haria falta ejecutar_
 
 ```
 nodemon start
