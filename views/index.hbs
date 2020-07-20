@@ -5,18 +5,17 @@
 
 <h2>Hola {{usuario}}, estás en el inicio!</h2>
 
-
+<a class="btn btn-danger" href="/logout" role="button">Cerrar sesión</a>
 {{else}}
 
 <h2>Hola, estás en el inicio, y aun no estás registrado!</h2>
-
+<a href="/login">Ir al login</a>
+<br>
+<a href="/register">Ir a registro</a>
+<br>
 {{/if}}
 
 <div id="div-fecha"></div>
 <p> Buscador: <input type="text" id="texto" /> <input name="ver" type="button" value="ver"</p>
 <!-- <var valor = document.getElementById("texto").value;-->
 
-<br>
-<a href="/login">Ir al login</a>
-<br>
-<a href="/register">Ir a registro</a>

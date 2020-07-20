@@ -66,6 +66,37 @@ app.get('/login', function (req, res) {
   res.render('login', { layout: 'template' });
 });
 
+// Login POST
+app.post('/login', function (req, res) {
+  //Acá podemos ver los argumentos que mandamos cuando nos registramos
+  //console.log("nombre => " + req.body.usuario) 
+  //console.log("clave => " + req.body.clave)
+
+  // Aca busco un nombre de usuario con el que me mandaron
+  var nombre_usuario = req.body.usuario
+  var clave = req.body.clave
+  var sql = "SELECT * FROM usuarios WHERE nombre_usuario = '" + nombre_usuario + "'";
+  conexion.query(sql, function (err, result) {
+    if (err) {
+      // Hubo un error registrandose
+      res.redirect("/")
+      throw err
+    };
+
+
+    if(result != false){ // Cuando es false no hay usuarios con ese nombre de usuario asi que ejecutaremos cuando si hay
+      if(result[0].clave == clave){ // Si la clave es igual en la base de datos y la que entro el usuario
+
+        //Creo la cookie
+        res.cookie("usuario", nombre_usuario);
+      }
+    }
+
+    res.redirect("/")
+  });
+
+});
+
 // Registro
 app.get('/register', function (req, res) {
   res.render('register', { layout: 'template' });
@@ -96,6 +127,12 @@ app.post('/register', function (req, res) {
     res.redirect("/")
   });
 
+});
+
+// Logout
+app.get('/logout', function (req, res) {
+  res.clearCookie('usuario');
+  res.redirect("/")
 });
 
 app.listen(3000, function () {
