@@ -27,6 +27,9 @@ git push origin master
 _Así, si nuestros cambios se subieron correctamente, los otros podran descargarlos haciendo un **git pull origin master**_
 
 
+_Para ejecutar la base de datos necesitamos XAMP, ir a phpMyAdmin y crear una base de datos llamada comercio-db_
+_Luego copiar todo el archivo comercio-db.sql y ejecutarlo todo en la consola que está en la parte inferior_
+
 ### Inicialización 
 
 _El primer paso es descargar los modulos del proyecto, esto se hace con el siguiente comando_
