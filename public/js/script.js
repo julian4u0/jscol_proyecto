@@ -25,4 +25,6 @@ function modoOscuro() {
     document.querySelector("#navbar > div > a").classList.toggle("white-text");
     document.querySelector("#navbarToggler > ul > li:nth-child(1) > a").classList.toggle("white-text-muted");
     document.querySelector("#navbarToggler > ul > li:nth-child(2) > a").classList.toggle("white-text-muted");
+    document.querySelector("body > footer").classList.toggle("dark-mode-footer")
+    document.querySelector("#navbarToggler > a.nav-link").classList.toggle("white-text")
  }

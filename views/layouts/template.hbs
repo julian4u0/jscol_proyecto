@@ -32,14 +32,34 @@
           </li>
         </ul>
 
-        <button type="button" class="btn btn-outline-dark" onclick="modoOscuro()">Modo oscuro</button>
+
+        <a class="nav-link link-navbar" href="#">Ingreso</a>
+        <a class="btn btn-success btn-sm" href="#" style="margin-right: 10px;" role="button">Registro</a>
+
       </div>
     </div>
 
   </nav>
   <div class="container">
     {{{body}}}
+
+    <div style="height: 50vh;"></div>
   </div>
+
+
+
+  <footer class="footer">
+    
+    <div>
+      
+      <div class="custom-control custom-switch" >
+        <input type="checkbox" class="custom-control-input" onclick="modoOscuro()" id="customSwitch1">
+        <label class="custom-control-label" for="customSwitch1">Modo oscuro</label>
+      </div>
+    </div>
+    <p>Repositorio en <a href="https://github.com/julian4u0/jscol_proyecto">github</a>.</p>
+    
+  </footer>
 
   <script src="js/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

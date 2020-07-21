@@ -23,6 +23,7 @@ var conexion = mysql.createConnection({
 conexion.connect(function(err) {
   if (err) throw err;
   console.log("Correctamente conectado a MySQL!");
+  
 });
 
 
