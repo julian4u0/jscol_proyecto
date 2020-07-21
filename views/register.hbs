@@ -1,20 +1,18 @@
 
 <br>
 <img src="https://i2.wp.com/www.enfasys.net/wp-content/uploads/2019/05/ecommerce.jpg?fit=1000%2C600&ssl=1" width="600" height="400" class="right">
-<form action="/register" method="POST" class="register" >
+<form action="/user/signup" method="POST" class="register" >
 
 <p> Registrate</p>
-<p> Usuario: <input name="usuario" type="text" class="right" /> </p> 
-<p> Contraseña: <input name="clave" type="password" class="right" /></p>
-<p> Primer nombre: <input name="nombre1" type="text" class="right" /> </p>
-<p> Segundo nombre: <input name="nombre2" type="text" class="right" /> </p>
-<p> Primer apellido: <input name="apellido1" type="text" class="right"/> </p>
-<p> Segundo apellido: <input name="apellido2" type="text" class="right" /> </p>
-<!--  <p> Email: <input name="email" type="text" style="width: 298px;"> </p> -->
-<p> Email: <input name="email" type="text" class="right"> </p>
+<p> Usuario: <input name="username" type="text" class="right" /> </p> 
+<p> Email: <input name="email" type="text" class="right" /> </p>
+<p> Contraseña: <input name="password" type="password" class="right" /></p>
+
+<div id="errorRegistro" style="color: red;"></div>
 <p><input  type="submit"  />
 
 </form>
+
 
 <a href="/login">Ya tienes cuenta?</a>
 

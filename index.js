@@ -2,8 +2,12 @@
 var express = require('express');
 var app = express();
 
+
+const user = require("./routes/user");
+
 // MySQL
 var mysql = require('mysql');
+const InitiateMongoServer = require("./config/db");
 
 // body-parser
 var bodyParser = require('body-parser');
@@ -12,20 +16,11 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
 // Conexión
-var conexion = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "comercio-db"
-});
+InitiateMongoServer();
+// PORT
+const PORT = process.env.PORT || 4000;
 
-// Acá intentamos conectarnos
-conexion.connect(function(err) {
-  if (err) throw err;
-  console.log("Correctamente conectado a MySQL!");
-  
-});
-
+require('dotenv').config({ debug: process.env.DEBUG });
 
 // Handlebars sirve para manejar plantillas html y mostrarlas
 var hbs = require('express-handlebars');
@@ -37,12 +32,13 @@ app.engine( 'hbs', hbs( {
   extname: 'hbs',
   defaultView: 'default',
   layoutsDir: __dirname + '/views/layouts/',
-  //partialsDir: __dirname + '/views/partials/'
+  partialsDir: __dirname + '/views/partials/'
 }));
 
 app.use(bodyParser.json()); // JSON bodies
-app.use(bodyParser.urlencoded({ extended: false })); // Encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // Encoded bodies
 app.use(cookieParser()); // Usamos cookie parser
+app.use(express.json());
 
 // Usamos la carpeta public para referenciar archivos css / js
 app.use(express.static(__dirname + '/public'));
@@ -51,8 +47,8 @@ app.use(express.static(__dirname + '/public'));
 // con la plantilla "template.hbs" que está en la carpeta layouts
 app.get('/', function (req, res) {
 
-  if(req.cookies.usuario){
-    let usuario = req.cookies.usuario
+  if(req.cookies.username){
+    let usuario = req.cookies.username
     res.render('index', { layout: 'template', usuario: usuario });
   }
   else{
@@ -67,77 +63,24 @@ app.get('/login', function (req, res) {
   res.render('login', { layout: 'template' });
 });
 
-// Login POST
-app.post('/login', function (req, res) {
-  //Acá podemos ver los argumentos que mandamos cuando nos registramos
-  //console.log("nombre => " + req.body.usuario) 
-  //console.log("clave => " + req.body.clave)
 
-  // Aca busco un nombre de usuario con el que me mandaron
-  var nombre_usuario = req.body.usuario
-  var clave = req.body.clave
-  var sql = "SELECT * FROM usuarios WHERE nombre_usuario = '" + nombre_usuario + "'";
-  conexion.query(sql, function (err, result) {
-    if (err) {
-      // Hubo un error registrandose
-      res.redirect("/")
-      throw err
-    };
-
-
-    if(result != false){ // Cuando es false no hay usuarios con ese nombre de usuario asi que ejecutaremos cuando si hay
-      if(result[0].clave == clave){ // Si la clave es igual en la base de datos y la que entro el usuario
-
-        //Creo la cookie
-        res.cookie("usuario", nombre_usuario);
-      }
-    }
-
-    res.redirect("/")
-  });
-
-});
+app.use("/user", user);
 
 // Registro
 app.get('/register', function (req, res) {
-  res.render('register', { layout: 'template' });
+  res.render('register', { layout: 'template',  });
 });
 
-// Registro POST
-app.post('/register', function (req, res) {
-  //Acá podemos ver los argumentos que mandamos cuando nos registramos
-  //console.log("nombre => " + req.body.usuario) 
-  //console.log("clave => " + req.body.clave)
-
-  // Aca inserto el usuario nuevo en la tabla usuarios
-  var nombre_usuario = req.body.usuario
-  var clave = req.body.clave
-  var nombre1 = req.body.nombre1
-  var nombre2 = req.body.nombre2
-  var apellido1 = req.body.apellido1
-  var apellido2 = req.body.apellido2
-  var email = req.body.email
-  var sql = "INSERT INTO usuarios (nombre_usuario, clave, nombre1, nombre2, apellido1, apellido2, email) VALUES ('" + nombre_usuario + "','" + clave + "','" + nombre1 + "','" + nombre2 + "','" + apellido1 + "','" + apellido2 + "','" + email + "')";
-  conexion.query(sql, function (err, result) {
-    if (err) {
-      // Hubo un error registrandose
-      res.redirect("/")
-      throw err
-    };
-
-    // El codigo de aqui abajo se ejecuta si se añadió el usuario correctamente,
-    // entonces crearé una cookie con el nombre de usuario
-
-    console.log("1 Usuario añadido!");
-    res.cookie("usuario", nombre_usuario);
-    res.redirect("/")
-  });
-
-});
 
 // Logout
 app.get('/logout', function (req, res) {
-  res.clearCookie('usuario');
+  
+  //borrar todas las cookies
+  res.clearCookie("token");
+  res.clearCookie("id");
+  res.clearCookie("username");
+  res.clearCookie("email");
+  res.clearCookie("role");
   res.redirect("/")
 });
 

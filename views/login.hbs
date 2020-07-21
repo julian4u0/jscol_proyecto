@@ -1,12 +1,13 @@
 
 <br>
-<form action="/login" method="POST" class="register">
+<form action="/user/login" method="POST" class="register">
 
 <p> Ingresa</p>
-<p> Usuario: <input name="usuario" type="text" class="right" /> </p> 
-<p> Contraseña: <input name="clave" type="password" class="right" /></p>
+<p> Email: <input id="email" name="email" type="text" class="right" /> </p> 
+<p> Contraseña: <input name="password" type="password" class="right" /></p>
 <p><input  type="submit"  />
 
+<div id="errorLogin" style="color: red;"></div>
 </form>
 
 <a href="/register">No tienes cuenta?</a>
