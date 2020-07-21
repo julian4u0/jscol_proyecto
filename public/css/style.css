@@ -25,3 +25,11 @@ nav{
 .white-text-muted{
     color:rgb(255 255 255 / 50%) !important; 
 }
+
+.register{width:350px;}
+
+.right
+{
+float:right;
+}
+

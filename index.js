@@ -111,7 +111,12 @@ app.post('/register', function (req, res) {
   // Aca inserto el usuario nuevo en la tabla usuarios
   var nombre_usuario = req.body.usuario
   var clave = req.body.clave
-  var sql = "INSERT INTO usuarios (nombre_usuario, clave) VALUES ('" + nombre_usuario + "','" + clave +"')";
+  var nombre1 = req.body.nombre1
+  var nombre2 = req.body.nombre2
+  var apellido1 = req.body.apellido1
+  var apellido2 = req.body.apellido2
+  var email = req.body.email
+  var sql = "INSERT INTO usuarios (nombre_usuario, clave, nombre1, nombre2, apellido1, apellido2, email) VALUES ('" + nombre_usuario + "','" + clave + "','" + nombre1 + "','" + nombre2 + "','" + apellido1 + "','" + apellido2 + "','" + email + "')";
   conexion.query(sql, function (err, result) {
     if (err) {
       // Hubo un error registrandose
