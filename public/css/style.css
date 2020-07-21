@@ -17,6 +17,10 @@ nav{
 .dark-mode-nav {
     background-color: #1d6580;
 }
+.dark-mode-footer {
+    background-color: #161a1b !important;
+    border-top: .05rem solid #1d6580 !important;
+}
 
 .white-text{
     color:white !important;
@@ -26,6 +30,7 @@ nav{
     color:rgb(255 255 255 / 50%) !important; 
 }
 
+<<<<<<< HEAD
 .register{width:350px;}
 
 .right
@@ -33,3 +38,16 @@ nav{
 float:right;
 }
 
+=======
+.footer {
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+  }
+
+  .link-navbar{
+      color: black;
+  }
+>>>>>>> 985b09463f38cd5eaacf0811df4a7adefa049ba8
