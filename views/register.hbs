@@ -8,6 +8,12 @@
 <p> Email: <input name="email" type="text" class="right" /> </p>
 <p> Contraseña: <input name="password" type="password" class="right" /></p>
 
+<!--la idea es que el usuario que quiere vender sea "userSeller" y el usuario normal que usara la plataforma para comprar sea "user"-->
+<select id="rol" onChange="output()">
+<option value="userSeller">Quieres vender</option>
+<option value="user">Quieres comprar</option>
+</select>
+
 <div id="errorRegistro" style="color: red;"></div>
 <p><input  type="submit"  />
 
