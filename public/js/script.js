@@ -16,15 +16,53 @@ divFecha.innerHTML = "Hoy es " + day + " de " + months[month] + " del " + year;
 
 
 //Modo Oscuro
-function modoOscuro() {
-    var bodyElem = document.body;
-    bodyElem.classList.toggle("dark-mode");
-    var navElem = document.getElementById("navbar");
-    navElem.classList.toggle("dark-mode-nav");
 
-    document.querySelector("#navbar > div > a").classList.toggle("white-text");
-    document.querySelector("#navbarToggler > ul > li:nth-child(1) > a").classList.toggle("white-text-muted");
-    document.querySelector("#navbarToggler > ul > li:nth-child(2) > a").classList.toggle("white-text-muted");
-    document.querySelector("body > footer").classList.toggle("dark-mode-footer")
-    document.querySelector("#navbarToggler > a.nav-link").classList.toggle("white-text")
- }
+var modoOscuro = localStorage.getItem('modo');
+
+if(modoOscuro != null){
+    switch (modoOscuro) {
+        case "oscuro":
+            activaModoOscuro()
+            break;
+    
+        default:
+            break;
+    }
+}
+
+function cambiarModo() {
+    
+    let modoactual = localStorage.getItem('modo');
+    if(modoactual == "oscuro"){
+        localStorage.setItem('modo', 'claro');
+        quitaModoOscuro()
+    }
+    else{
+        localStorage.setItem('modo', 'oscuro');
+        activaModoOscuro()
+
+    }
+}
+
+function activaModoOscuro() {
+    var bodyElem = document.body;
+    bodyElem.classList.add("dark-mode");
+    var navElem = document.getElementById("navbar");
+    navElem.classList.add("dark-mode-nav");
+    document.querySelector("#navbar > div > a").classList.add("white-text");
+    document.querySelector("#navbarToggler > ul > li:nth-child(1) > a").classList.add("white-text-muted");
+    document.querySelector("#navbarToggler > ul > li:nth-child(2) > a").classList.add("white-text-muted");
+    document.querySelector("body > footer").classList.add("dark-mode-footer")
+    document.querySelector("#navbarToggler > a.nav-link").classList.add("white-text")
+}
+function quitaModoOscuro() {
+    var bodyElem = document.body;
+    bodyElem.classList.remove("dark-mode");
+    var navElem = document.getElementById("navbar");
+    navElem.classList.remove("dark-mode-nav");
+    document.querySelector("#navbar > div > a").classList.remove("white-text");
+    document.querySelector("#navbarToggler > ul > li:nth-child(1) > a").classList.remove("white-text-muted");
+    document.querySelector("#navbarToggler > ul > li:nth-child(2) > a").classList.remove("white-text-muted");
+    document.querySelector("body > footer").classList.remove("dark-mode-footer")
+    document.querySelector("#navbarToggler > a.nav-link").classList.remove("white-text")
+}
