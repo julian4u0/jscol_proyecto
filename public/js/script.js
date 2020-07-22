@@ -11,7 +11,10 @@ var yy = date.getYear();
 var year = (yy < 1000) ? yy + 1900 : yy; 
 
 var divFecha = document.getElementById("div-fecha");
-divFecha.innerHTML = "Hoy es " + day + " de " + months[month] + " del " + year;
+if (divFecha != null){
+    divFecha.innerHTML = "Hoy es " + day + " de " + months[month] + " del " + year;
+
+}
 //document.write("Hoy es " + day + " de " + months[month] + " del " + year);
 
 
