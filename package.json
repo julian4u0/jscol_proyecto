@@ -29,7 +29,8 @@
     "mongoose": "^5.9.25",
     "mysql": "^2.18.1",
     "rand-token": "^1.0.1",
-    "req": "^0.1.4"
+    "req": "^0.1.4",
+    "request": ">=2.68.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
