@@ -38,6 +38,12 @@ nav{
 float:right;
 }
 
+.left
+{
+    width:195px;
+    margin-left: 64px;
+}
+
 .footer {
     padding: 2.5rem 0;
     color: #999;
