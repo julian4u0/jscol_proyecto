@@ -31,7 +31,12 @@ router.post(
             });
         }
 
-        const { username, email, password } = req.body;
+        function typeUser(){
+            lista = document.typeuser;
+            typeuser = lista.options[lista.selectedIndex].text
+        }
+
+        const { username, email, password, typeuser } = req.body;
         try {
             let user = await User.findOne({
                 email
@@ -44,7 +49,8 @@ router.post(
             user = new User({
                 username,
                 email,
-                password
+                password,
+                typeuser
             });
 
             const salt = await bcrypt.genSalt(10);

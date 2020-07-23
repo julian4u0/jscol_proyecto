@@ -7,19 +7,23 @@
 <p> Usuario: <input name="username" type="text" class="right" /> </p> 
 <p> Email: <input name="email" type="text" class="right" /> </p>
 <p> Contraseña: <input name="password" type="password" class="right" /></p>
+<!--p> Tipo usuario: <input name="typeuser" type="text" class="right" /></p-->
+
 
 <!--la idea es que el usuario que quiere vender sea "userSeller" y el usuario normal que usara la plataforma para comprar sea "user"-->
-<select id="rol" onChange="output()">
-<option value="userSeller">Quieres vender</option>
-<option value="user">Quieres comprar</option>
-</select>
+<p> Tipo usuario:
+    <select name="typeuser" id="typeuser" type="lista" class="left" >
+        <option value="VENDEDOR">VENDEDOR</option>
+        <option value="COMPRADOR">COMPRADOR</option>
+    </select><br/>    
+    <input type="submit" onclick="typeUser()"/>
+</p>
+</form>
+<a href="/login">Ya tienes cuenta?</a>
 
 <div id="errorRegistro" style="color: red;"></div>
-<p><input  type="submit"  />
-
-</form>
 
 
-<a href="/login">Ya tienes cuenta?</a>
+
 
 
