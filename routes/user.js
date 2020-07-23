@@ -31,11 +31,6 @@ router.post(
             });
         }
 
-        function typeUser(){
-            lista = document.typeuser;
-            typeuser = lista.options[lista.selectedIndex].text
-        }
-
         const { username, email, password, typeuser } = req.body;
         try {
             let user = await User.findOne({

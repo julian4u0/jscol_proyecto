@@ -69,3 +69,8 @@ function quitaModoOscuro() {
     document.querySelector("body > footer").classList.remove("dark-mode-footer")
     document.querySelector("#navbarToggler > a.nav-link").classList.remove("white-text")
 }
+
+function typeUser(){
+    lista = document.typeuser;
+    typeuser = lista.options[lista.selectedIndex].text
+}
