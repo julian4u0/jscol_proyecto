@@ -71,6 +71,9 @@ app.get('/register', function (req, res) {
   res.render('register', { layout: 'template',  });
 });
 
+app.get('/seller', function (req, res) {
+  res.render('seller', { layout: 'template',  });
+});
 
 // Logout
 app.get('/logout', function (req, res) {

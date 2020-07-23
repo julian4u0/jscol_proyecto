@@ -114,12 +114,20 @@ router.post(
                 return res.redirect(serverurl + "/login?error_login=wrong_pass");
             }
             
+            var dateNow = new Date();
+
+            var tiempoReg = (dateNow - user.createdAt)/1000 // segundos
+            var tiempoRegMinutes = Math.floor(tiempoReg / 60) // minutos 
+
+            
+            console.log("El usuario se registro hace " +  tiempoRegMinutes + " minutos")
 
             const payload = {
                 user: {
                     id: user.id
                 }
             };
+
 
             jwt.sign(
                 payload,
@@ -132,12 +140,22 @@ router.post(
 
                     //Usuario entró correctamente
                     
+
                     res.cookie("token", token);
                     res.cookie("id", user.id);
                     res.cookie("username", user.username);
                     res.cookie("email", user.email);
                     res.cookie("role", user.role);
-                    res.redirect("/")
+                    
+                    if (tiempoRegMinutes < 15){
+                
+                        res.redirect("/seller")
+                    }
+                    else{
+
+                        res.redirect("/")
+                    }
+
                 }
             );
         } catch (e) {
