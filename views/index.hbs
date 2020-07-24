@@ -1,18 +1,32 @@
+<div class="container nav-bottom-new">
+    <div>
+        {{#if usuario}}
 
+
+        <h2>Bienvenido, {{usuario}}</h2>
+        {{else}}
+        <h2>Bienvenido a ...</h2>
+        {{/if}}
+    </div>
+    <div>
+        <a role="button" class="btn btn-success">Quiero contratar</a>
+        <a role="button" href="/seller" class="btn btn-outline-light">Quiero ofrecer mis servicios</a>
+    </div>
+</div>
 <br>
+<h4>Explorar </h4>
 
-{{#if usuario}}
 
-<h2>Hola {{usuario}}, estás en el inicio!</h2>
-
-<a class="btn btn-danger" href="/logout" role="button">Cerrar sesión</a>
-{{else}}
-
-<h2>Hola, estás en el inicio, y aun no estás registrado!</h2>
-
-{{/if}}
+<form>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Buscar por palabra clave">
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </div>
+</form>
 
 <div id="div-fecha"></div>
-<p> Buscador: <input type="text" id="texto" /> <input name="ver" type="button" value="ver"</p>
-<!-- <var valor = document.getElementById("texto").value;-->
-
+    <!-- <var valor = document.getElementById("texto").value;-->

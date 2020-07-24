@@ -1,30 +1,36 @@
 <br>
 <h3>Que servicio quieres ofrecer?</h3>
-<form action="" method="POST">
+<form action="/services/add_service" method="POST">
 
 
   <div class="form-group">
     <label for="tituloFormControl">Titulo de tu servicio</label>
-    <input type="email" class="form-control" id="tituloFormControl" placeholder="Haré ...">
+    <input type="text" class="form-control" name="title" id="tituloFormControl" placeholder="Haré ...">
   </div>
 
   <div class="form-group">
     <label for="acercaFormControl">Descripcion del servicio</label>
-    <textarea class="form-control" id="acercaFormControl" rows="2"></textarea>
+    <textarea class="form-control" name="description" id="acercaFormControl" rows="2"></textarea>
   </div>
 
   <div class="form-group">
     <label for="categoriaFormControl">Categoria</label>
-    <select class="form-control" id="categoriaFormControl">
-      <option>Diseño de logos</option>
-      <option>Ilustraciones</option>
-      <option>Edición con Photoshop</option>
-      <option>Diseño web y móvil</option>
-      <option>Retratos</option>
-      <option>Otro</option>
+    <select class="form-control" name="category" id="categoriaFormControl">
+      <option value="diseño-logos"> Diseño de logos</option>
+      <option value="ilustraciones">Ilustraciones</option>
+      <option value="edicion-photoshop">Edición con Photoshop</option>
+      <option value="diseño-web">Diseño web y móvil</option>
+      <option value="retratos">Retratos</option>
+      <option value="otro">Otro</option>
     </select>
   </div>
-<button type="button" class="btn btn-success">Enviar</button>
+  
+  <div class="form-group">
+    <label for="tituloFormControl">Precio minimo de tu servicio</label>
+    <input type="number" class="form-control" name="miniumPrice" id="tituloFormControl" placeholder="Precio en pesos colombianos">
+  </div>
+
+<button type="submit"  class="btn btn-success">Enviar</button>
   
 
 </form>

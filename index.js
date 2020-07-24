@@ -4,6 +4,7 @@ var app = express();
 
 
 const user = require("./routes/user");
+const services = require("./routes/services");
 
 // MySQL
 var mysql = require('mysql');
@@ -49,10 +50,16 @@ app.get('/', function (req, res) {
 
   if(req.cookies.username){
     let usuario = req.cookies.username
-    res.render('index', { layout: 'template', usuario: usuario });
+    res.render('index', { layout: 'template', usuario: usuario ,
+    navPartial: function() {
+         return "nav-user";
+    }});
   }
   else{
-    res.render('index', { layout: 'template' });
+    res.render('index', { layout: 'template',
+    navPartial: function() {
+         return "nav-new";
+    } });
   }
 
   
@@ -60,19 +67,30 @@ app.get('/', function (req, res) {
 
 // Login
 app.get('/login', function (req, res) {
-  res.render('login', { layout: 'template' });
+  res.render('login', { layout: 'template',
+  navPartial: function() {
+       return "nav-new";
+  } });
 });
 
 
 app.use("/user", user);
+app.use("/services", services);
 
 // Registro
 app.get('/register', function (req, res) {
-  res.render('register', { layout: 'template',  });
+  res.render('register', { layout: 'template', 
+  navPartial: function() {
+       return "nav-new";
+  }});
 });
 
 app.get('/seller', function (req, res) {
-  res.render('seller', { layout: 'template',  });
+  let usuario = req.cookies.username
+  res.render('seller', { layout: 'template',usuario: usuario, 
+  navPartial: function() {
+       return "nav-user";
+  }});
 });
 
 // Logout
