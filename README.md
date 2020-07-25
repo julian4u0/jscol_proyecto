@@ -41,3 +41,7 @@ _Y ahora para correr el servidor, solo haria falta ejecutar_
 ```
 nodemon start
 ```
+
+### Captura
+
+![Imagen](screenshot.png)

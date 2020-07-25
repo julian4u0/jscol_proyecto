@@ -1,32 +1,40 @@
-<div class="container nav-bottom-new">
-    <div>
-        {{#if usuario}}
+</div>
+<div class="nav-bottom-new">
+    <div class="container">
+        <div style="display: flex; justify-content:space-between;">
+
+            <div >
+                {{#if usuario}}
 
 
-        <h2>Bienvenido, {{usuario}}</h2>
-        {{else}}
-        <h2>Bienvenido a ...</h2>
-        {{/if}}
-    </div>
-    <div>
-        <a role="button" class="btn btn-success">Quiero contratar</a>
-        <a role="button" href="/seller" class="btn btn-outline-light">Quiero ofrecer mis servicios</a>
+                <h2>Bienvenido, {{usuario}}</h2>
+                {{else}}
+                <h2>Bienvenido a ...</h2>
+                {{/if}}
+            </div>
+            <div>
+                <a role="button" class="btn btn-success">Quiero contratar</a>
+                <a role="button" href="/seller" class="btn btn-outline-light">Quiero ofrecer mis servicios</a>
+            </div>
+        </div>
     </div>
 </div>
-<br>
-<h4>Explorar </h4>
+
+<div class="container">
+    <br>
+    <h4>Explorar </h4>
 
 
-<form>
-    <div class="row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Buscar por palabra clave">
+    <form>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Buscar por palabra clave">
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
         </div>
-        <div class="col">
-            <button type="submit" class="btn btn-primary">Buscar</button>
-        </div>
-    </div>
-</form>
+    </form>
 
-<div id="div-fecha"></div>
+    <div id="div-fecha"></div>
     <!-- <var valor = document.getElementById("texto").value;-->
