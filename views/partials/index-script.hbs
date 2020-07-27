@@ -1,0 +1,59 @@
+
+
+document.getElementById("search-button").onclick =
+  function () {
+    let searchval = document.getElementById("search-text").value;
+
+    fetch('/services/filter_service', { mode: 'cors' })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (res) {
+        let services = JSON.parse(res)["services"]
+        let queriesContainer = document.getElementById("queries")
+
+        const app = document.getElementById("queries");
+        app.innerHTML = ''
+
+
+        const servicesList = document.createElement("ul");
+        servicesList.className = "services-list";
+
+        Object.keys(services).forEach(service => {
+
+          /* Crear lista item */
+          const li = document.createElement("li");
+          li.className = "service";
+          li.id = `service${service}`;
+
+          /* Crear titulo */
+          const name = document.createElement("p");
+          name.className = "user-name";
+          let title = JSON.stringify(services[service]["title"]).replace(/\"/g, "")
+          let category = JSON.stringify(services[service]["category"]).replace(/\"/g, "")
+          name.innerHTML =
+            "<b>" + title + "</b> <span>-- " + category + "</span>";
+
+          /* Crear precio */
+          let miniumPrice = JSON.stringify(services[service]["miniumPrice"]).replace(/\"/g, "")
+
+          const priceEl = document.createElement("address");
+          priceEl.innerText = miniumPrice;
+
+          li.appendChild(name);
+          li.appendChild(priceEl);
+
+          /* Añadir elemento a lista */
+          servicesList.appendChild(li);
+        });
+
+
+        app.appendChild(servicesList);
+
+
+        console.log('Request successful', services["services"]);
+      })
+      .catch(function (error) {
+        console.log('Request failed', error)
+      });
+  };

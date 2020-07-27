@@ -29,7 +29,7 @@ router.post(
         }
 
         const { title, description, category, miniumPrice } = req.body;
-        
+
         newService = new Services({
             title,
             description,
@@ -42,12 +42,33 @@ router.post(
 
             // Aca se guarda a la base de datos
             await newService.save();
-            
+
             res.redirect("/")
         } catch (err) {
             console.log(err.message);
             res.status(500).send("Error in Saving");
         }
+    })
+router.get(
+    "/filter_service",
+    async (req, res) => {
+
+        Services.find({}, function (err, services) {
+            if (err)
+
+                res.status(200).json({
+                    message: "Server Error"
+                });
+
+            var ServicesMap = {};
+
+            services.forEach(function (services) {
+                ServicesMap[services._id] = services;
+            });
+
+            res.status(200).json({ "services": ServicesMap });
+        });
+
     }
 );
 

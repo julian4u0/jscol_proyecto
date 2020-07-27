@@ -3,7 +3,7 @@
     <div class="container">
         <div style="display: flex; justify-content:space-between;">
 
-            <div >
+            <div>
                 {{#if usuario}}
 
 
@@ -28,13 +28,24 @@
     <form>
         <div class="row">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Buscar por palabra clave">
+                <input type="text" id="search-text" class="form-control" placeholder="Buscar por palabra clave">
             </div>
             <div class="col">
-                <button type="submit" class="btn btn-primary">Buscar</button>
+                <button type="button" id="search-button" class="btn btn-primary">Buscar</button>
             </div>
         </div>
     </form>
 
     <div id="div-fecha"></div>
+
+    <div id="queries"></div>
     <!-- <var valor = document.getElementById("texto").value;-->
+
+    <template>
+        <li class="servicio">
+            <p class="titulo">
+                <b></b><span></span>
+            </p>
+            <div class="minium-price"></div>
+        </li>
+    </template>

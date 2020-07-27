@@ -29,21 +29,20 @@
   </nav>
   <div class="container">
     {{{body}}}
-
-
     <div style="height: 50vh;"></div>
   </div>
 
-
   {{> footer}}
 
-  {{> scripts}}
-  <script src="js/script.js"></script>
-  <script src="js/validacionRegistro.js"></script>
-
-
-
-
 </body>
+
+{{> scripts}}
+
+<script src="js/script.js"></script>
+<script src="js/validacionRegistro.js"></script>
+<script>
+{{> (customScripts)}}
+</script>
+
 
 </html>
