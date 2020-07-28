@@ -25,6 +25,9 @@
     <h4>Explorar </h4>
 
 
+
+
+    <!-- <var valor = document.getElementById("texto").value;-->
     <form>
         <div class="row">
             <div class="col">
@@ -37,15 +40,48 @@
     </form>
 
     <div id="div-fecha"></div>
+    <div class="row">
 
-    <div id="queries"></div>
-    <!-- <var valor = document.getElementById("texto").value;-->
+        <aside class="col-md-4">
 
-    <template>
-        <li class="servicio">
-            <p class="titulo">
-                <b></b><span></span>
-            </p>
-            <div class="minium-price"></div>
-        </li>
-    </template>
+            <div class="p-3">
+                <h4 class="font-italic">Filtrar</h4>
+
+                <div class="col-auto my-1">
+                    <label class="mr-sm-2" for="filtro1">Preferencia 1</label>
+                    <select class="custom-select mr-sm-2" id="filtro1">
+                        <option selected>Choose...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-auto my-1">
+                    <label class="mr-sm-2" for="filtro2">Preferencia 2</label>
+                    <select class="custom-select mr-sm-2" id="filtro2">
+                        <option selected>Choose...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </aside>
+
+        <div class="col-md-8 blog-main">
+            <h3 class="pb-3 mb-4 font-italic border-bottom">
+                Resultados
+            </h3>
+
+            <div id="queries"></div>
+            <div class="pagination">
+                <a class="btn btn-outline-secondary" href="#"><</a>
+                <a class="btn btn-outline-secondary" href="#">></a>
+            </div>
+
+        </div><!-- /.blog-main -->
+
+
+    </div>

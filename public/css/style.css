@@ -1,46 +1,47 @@
-*{
-    font-family: 'Hind Siliguri', sans-serif;
+* {
+    font-family: 'Varela Round', sans-serif;
 }
-body{
+
+body {
     background-color: #f4fcff;
 }
 
-nav{
+nav {
     background-color: #b9ebff;
-
 }
 
 .dark-mode {
     background-color: #232526;
     color: white;
 }
+
 .dark-mode-nav {
     background-color: #1d6580;
 }
+
 .dark-mode-footer {
     background-color: #161a1b !important;
     border-top: .05rem solid #1d6580 !important;
 }
 
-.white-text{
-    color:white !important;
+.white-text {
+    color: white !important;
 }
 
-.white-text-muted{
-    color:rgb(255 255 255 / 50%) !important; 
+.white-text-muted {
+    color: rgb(255 255 255 / 50%) !important;
 }
 
-
-.register{width:350px;}
-
-.right
-{
-float:right;
+.register {
+    width: 350px;
 }
 
-.left
-{
-    width:195px;
+.right {
+    float: right;
+}
+
+.left {
+    width: 195px;
     margin-left: 64px;
 }
 
@@ -50,13 +51,17 @@ float:right;
     text-align: center;
     background-color: #f9f9f9;
     border-top: .05rem solid #e5e5e5;
-  }
+}
 
-  .link-navbar{
-      color: black;
-  }
-  
-.nav-bottom-new{
+.link-navbar {
+    color: black;
+}
+
+.navbar {
+    min-height: 80px;
+}
+
+.nav-bottom-new {
     display: flex;
     justify-content: space-between;
     color: white;

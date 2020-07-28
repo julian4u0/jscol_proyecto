@@ -1,4 +1,14 @@
-<script src="">
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const err = urlParams.get('error')
+if (err) {
+    switch (err) {
+        case "already_exists":
+            document.getElementById("errorRegistro").innerHTML = "El usuario ya se encuentra registrado"
 
-  
-</script>
+            break;
+
+        default:
+            break;
+    }
+}
