@@ -1,6 +1,5 @@
-# jscol_proyecto
+# Proyecto: freelance
 
-_El objetivo inicial de este proyecto es practicar y aprender nuestros conocimientos en JS_
 
 ### Instalación 
 
