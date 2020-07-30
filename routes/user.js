@@ -72,8 +72,8 @@ router.post(
 
 
                     res.cookie("token", token);
-                    
-                    return res.redirect(serverurl + "/login?new_user="+email);
+
+                    return res.redirect(serverurl + "/login?new_user=" + email);
 
                 }
             );
@@ -87,7 +87,7 @@ router.post(
 router.post(
     "/login",
     async (req, res) => {
-        
+
         const serverurl = req.protocol + '://' + req.get('host');
 
         const errors = validationResult(req);
@@ -105,23 +105,24 @@ router.post(
                 email
             });
             if (!user)
-            //Usuario no existe
+                //Usuario no existe
+                return res.redirect(serverurl + "/login?error_login=not_existing_user");
+
             
-            return res.redirect(serverurl + "/login?error_login=not_existing_user");
 
             const isMatch = await bcrypt.compare(password, user.password);
-            if (!isMatch){
+            if (!isMatch) {
                 //Contraseña incorrecta
                 return res.redirect(serverurl + "/login?error_login=wrong_pass");
             }
-            
+
             var dateNow = new Date();
 
-            var tiempoReg = (dateNow - user.createdAt)/1000 // segundos
+            var tiempoReg = (dateNow - user.createdAt) / 1000 // segundos
             var tiempoRegMinutes = Math.floor(tiempoReg / 60) // minutos 
 
-            
-            console.log("El usuario se registro hace " +  tiempoRegMinutes + " minutos")
+
+            console.log("El usuario se registro hace " + tiempoRegMinutes + " minutos")
 
             const payload = {
                 user: {
@@ -140,19 +141,19 @@ router.post(
                     if (err) throw err;
 
                     //Usuario entró correctamente
-                    
+
 
                     res.cookie("token", token);
                     res.cookie("id", user.id);
                     res.cookie("username", user.username);
                     res.cookie("email", user.email);
                     res.cookie("role", user.role);
-                    
-                    if (tiempoRegMinutes < 15){
-                
+
+                    if (tiempoRegMinutes < 15) {
+
                         res.redirect("/seller")
                     }
-                    else{
+                    else {
 
                         res.redirect("/")
                     }

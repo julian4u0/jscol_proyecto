@@ -17,36 +17,56 @@ router.post(
         const serverurl = req.protocol + '://' + req.get('host');
 
 
-        console.log('signup route...', req.body)
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
+        let tkn = req.cookies.token;
+        if (tkn) {
+            jwt.verify(tkn, "secret", async (err, decoded) => {
+                if (err) {
+                    console.log("token invalido")
+                } else {
+                    console.log("token valido")
+
+                    let creatorId = decoded.user.id;
+                    console.log("Id del creador  == >" + creatorId)
 
 
-            return res.status(400).json({
+                    console.log('signup route...', req.body)
+                    const errors = validationResult(req);
+                    if (!errors.isEmpty()) {
 
-                errors: errors.array()
+
+                        return res.status(400).json({
+
+                            errors: errors.array()
+                        });
+                    }
+
+                    const { title, description, category, miniumPrice } = req.body;
+
+                    newService = new Services({
+                        title,
+                        description,
+                        category,
+                        miniumPrice,
+                        creatorId
+
+                    });
+
+                    try {
+
+
+                        // Aca se guarda a la base de datos
+                        await newService.save();
+
+                        res.redirect("/")
+                    } catch (err) {
+                        console.log(err.message);
+                        res.status(500).send("Error in Saving");
+                    }
+                }
             });
-        }
 
-        const { title, description, category, miniumPrice } = req.body;
-
-        newService = new Services({
-            title,
-            description,
-            category,
-            miniumPrice
-        });
-
-        try {
-
-
-            // Aca se guarda a la base de datos
-            await newService.save();
-
-            res.redirect("/")
-        } catch (err) {
-            console.log(err.message);
-            res.status(500).send("Error in Saving");
+        } else {
+            console.log("token no proveida")
         }
     })
 router.get(
